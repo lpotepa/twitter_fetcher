@@ -1,21 +1,23 @@
-# TwitterFetcher
+## Usage:
 
-**TODO: Add description**
+```
+cp config/dev.secret.example.exs config/dev.secret.exs
+mix ecto.create
+mix ecto.migrate
 
-## Installation
+```
+## Adding a user
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `twitter_fetcher` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:twitter_fetcher, "~> 0.1.0"}
-  ]
-end
+```
+  mix add_user <twitter-user-name>
+  Example:
+  mix add_user twitterdev
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/twitter_fetcher](https://hexdocs.pm/twitter_fetcher).
+## Usage in Production:
+
+```
+TWITTER_FETCH_INTERVAL=<fetch-interval-in-minutes> CONSUMER_API_KEY=<consumer-api-key> <CONSUMER_API_SECRET=consumer-api-secret> <ACCESS_TOKEN=access-token> ACCESS_TOKEN_SECRET=<access-token-secret> DATABASE_URL=<postgresql-database-url> MIX_ENV=prod iex -S mix
+```
+
 
