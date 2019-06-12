@@ -1,4 +1,4 @@
-## Usage:
+## Setup:
 
 ```
 cp config/dev.secret.example.exs config/dev.secret.exs
