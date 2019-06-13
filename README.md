@@ -2,6 +2,7 @@
 
 ```
 cp config/dev.secret.example.exs config/dev.secret.exs
+mix deps.get
 mix ecto.create
 mix ecto.migrate
 

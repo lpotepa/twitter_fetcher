@@ -5,13 +5,13 @@ defmodule Clients.Twitter.ResponseHandlers.Timeline do
   def handle({:ok, %{status_code: 429, headers: headers}}, name),
     do: handle_rate_limit(headers, name)
 
-  def handle({:ok, %{status_code: 401}}, name),
+  def handle({:ok, %{status_code: 401}}, _),
     do: handle_unauthorized()
 
-  def handle({:ok, %{status_code: status_code}}, name),
+  def handle({:ok, %{status_code: status_code}}, _),
     do: {:error, "Error: status_code: #{status_code}"}
 
-  def handle({:error, %{reason: reason}}, name), do: {:error, reason}
+  def handle({:error, %{reason: reason}}, _), do: {:error, reason}
 
   defp handle_unauthorized do
     IO.puts("Failed to authorize user. Check your API keys.")

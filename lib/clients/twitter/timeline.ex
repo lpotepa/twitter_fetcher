@@ -5,7 +5,7 @@ defmodule Clients.Twitter.Timeline do
   use HTTPoison.Base
 
   def fetch(name, port \\ nil) do
-    params = sign("get", url, [{"screen_name", name}])
+    params = sign("get", url(), [{"screen_name", name}])
     {headers, req_params} = OAuther.header(params)
 
     get(url(port), [headers], params: req_params)

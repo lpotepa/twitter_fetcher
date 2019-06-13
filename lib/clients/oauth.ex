@@ -13,7 +13,7 @@ defmodule Oauth do
       method,
       url,
       params,
-      credentials
+      credentials()
     )
   end
 end
